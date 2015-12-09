@@ -14,7 +14,7 @@ If this is not enough data you can download free ebooks from [Project Gutenberg]
 First we will use the sample data from the previously stated GitHub repository. 
 ## Create an index
 If you havn't done it before, create the *comicbook* index with the following command:
-```
+```console
 curl -XPUT 'http://localhost:9200/comicbook/' -d '{
     "settings" : {
         "index" : {

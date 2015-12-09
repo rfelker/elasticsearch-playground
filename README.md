@@ -25,4 +25,3 @@ curl -XPUT 'http://localhost:9200/comicbook/' -d '{
 }'
 ```
 Windows users can download cURL ([here](http://curl.haxx.se/download.html)) or use Sense for Chrome.
-Test

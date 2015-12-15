@@ -11,7 +11,7 @@ from me :-), which transform the outut from json-generator.com to a bulk import 
 With json-generator.com, you write some generic input data and get generated output data
 (see the website for details).
 
-With a given input data (see file [json-generator-input.json](json-generator-input.json))...
+With a given input data (see file [json-generator-input.json](src/main/resources/json-generator-input.json))...
 
 ````
 {
@@ -46,7 +46,7 @@ With a given input data (see file [json-generator-input.json](json-generator-inp
 }
 ````
 ### Output data from json-generator.com
-... the generated output data looks like (see file [json-generator-output.json](json-generator-output.json))
+... the generated output data looks like (see file [json-generator-output.json](src/main/resources/json-generator-output.json))
 
 ````json
 {

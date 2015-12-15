@@ -21,7 +21,7 @@ public class ImportDataGenerator {
                 importDataElasticsearch = args[1];
 
             } else if (args.length == 1) {
-                importDataElasticsearch = args[1];
+                jsonGeneratorOutput = args[0];
             }
         }
 

@@ -9,3 +9,4 @@ To play around with Elasticsearch you need first some sample data. A good source
 
 
 Take also a look at the [wiki](https://github.com/rfelker/elasticsearch-playground/wiki)
+

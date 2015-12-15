@@ -11,12 +11,12 @@ from me :-), which transform the outut from json-generator.com to a bulk import 
 With json-generator.com, you write some generic input data and get generated output data
 (see the website for details).
 
-With a given input data...
+With a given input data (see file [json-generator-input.json](json-generator-input.json))...
 
 ````
 {
     "indizes": [
-        "{{repeat(2)}}",
+        "{{repeat(10000)}}",
         {
             "index": {
                 "_id": "{{index(1)}}"
@@ -24,7 +24,7 @@ With a given input data...
         }
     ],
     "data": [
-        "{{repeat(2)}}",
+        "{{repeat(10000)}}",
         {
             "firstname": "{{firstName()}}",
             "surname": "{{surname()}}",
@@ -44,10 +44,9 @@ With a given input data...
         }
     ]
 }
-
 ````
 ### Output data from json-generator.com
-... the generated output data looks like
+... the generated output data looks like (see file [json-generator-output.json](json-generator-output.json))
 
 ````json
 {
@@ -113,11 +112,17 @@ for bulk import in Elasticsearch with the ImportDataGenerator from this reposito
 > done!
 ```
 
-The resulting file with 10.000 datasets is the file [import-data-elasticsearch.json](import-data-elasticsearch.json) in this
-repository
+The resulting file with 10.000 datasets is the file [import-data-elasticsearch.json](import-data-elasticsearch.json) which
+looks like
 
 
+````
+{"index":{"_id":1}}
+{"birthday":"1930-12-29","firstname":"Bonner","address":{"city":"Kerby","street":"4 Independence Avenue","latitude":10.032859,"state":"Nevada","longitude":87.830614},"gender":"male","phone":"+1 (845) 586-2656","surname":"Hurley","company":"Medifax","email":"bonnerhurley@medifax.com","hobby":"idle"}
+{"index":{"_id":2}}
+{"birthday":"2004-05-10","firstname":"Mills","address":{"city":"Kidder","street":"9 Devoe Street","latitude":-88.89292,"state":"Kansas","longitude":150.753392},"gender":"male","phone":"+1 (826) 587-3873","surname":"Robinson","company":"Suretech","email":"millsrobinson@suretech.com","hobby":"swimming"}
+...
+````
 
 
-Take also a look at the [wiki](https://github.com/rfelker/elasticsearch-playground/wiki)
 

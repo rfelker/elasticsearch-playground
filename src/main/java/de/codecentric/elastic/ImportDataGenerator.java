@@ -9,56 +9,56 @@ import org.json.simple.parser.ParseException;
 import java.io.*;
 import java.util.Iterator;
 
-/**
- * Hello world!
- */
 public class ImportDataGenerator {
     public static void main(String[] args) throws IOException, ParseException {
 
-        String filenameIndizes = "/indizes.json";
-        String filenameData = "/data.json";
-        String filenameOutput = "importData.json";
+        String jsonGeneratorOutput = "/json-generator-output.json";
+        String importDataElasticsearch = "import-data-elasticsearch.json";
 
         if (args != null && args.length == 2) {
-            filenameIndizes = args[0];
-            filenameData = args[1];
+            jsonGeneratorOutput = args[0];
+            importDataElasticsearch = args[1];
         }
 
         ImportDataGenerator app = new ImportDataGenerator();
-        app.createElasticsearchDataFile(filenameIndizes, filenameData, filenameOutput);
+        app.createElasticsearchDataFile(jsonGeneratorOutput, importDataElasticsearch);
 
     }
 
-    private void createElasticsearchDataFile(String filenameIndizes, String filenameData, String filenameOutput) throws IOException, ParseException {
+    private void createElasticsearchDataFile(String jsonGeneratorOutput, String importDataElasticsearch) throws IOException, ParseException {
+
+        File inputFile = new File(jsonGeneratorOutput);
+        File outputFile = new File(importDataElasticsearch);
 
         try (
-                BufferedReader brIndizes = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream(filenameIndizes)));
-                BufferedReader brData = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream(filenameData)));
-                BufferedWriter writer = new BufferedWriter(new FileWriter(new File(filenameOutput).getAbsoluteFile()));
+                BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))
         ) {
 
             JSONParser parser = new JSONParser();
-            JSONObject parseIndizes = (JSONObject) parser.parse(brIndizes);
-            JSONObject parseData = (JSONObject) parser.parse(brData);
+            JSONObject parseData = (JSONObject) parser.parse(reader);
 
-            JSONArray indizes = (JSONArray) parseIndizes.get("indizes");
-            JSONArray datas = (JSONArray) parseData.get("data");
+            JSONArray indizes = (JSONArray) parseData.get("indizes");
+            JSONArray data = (JSONArray) parseData.get("data");
+
+            System.out.println(String.format("reading from file %s...", inputFile.getName()));
+            System.out.println(String.format("writing %d data sets to file %s...", indizes.size(), outputFile.getName()));
 
             Iterator indizesIterator = indizes.iterator();
-            Iterator dataIterator = datas.iterator();
-
-            int i=0;
+            Iterator dataIterator = data.iterator();
 
             while (indizesIterator.hasNext() && dataIterator.hasNext()) {
+
                 JSONObject index = (JSONObject) indizesIterator.next();
-                JSONObject data = (JSONObject) dataIterator.next();
+                JSONObject object = (JSONObject) dataIterator.next();
 
                 writer.write(index.toString());
                 writer.newLine();
-                writer.write(data.toString());
+                writer.write(object.toString());
                 writer.newLine();
-
             }
+
+            System.out.println("done!");
         }
 
     }

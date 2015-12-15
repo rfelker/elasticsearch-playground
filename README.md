@@ -40,7 +40,10 @@ With a given input data (see file [json-generator-input.json](src/main/resources
                 "latitude": "{{floating(-90.000001, 90)}}",
                 "longitude": "{{floating(-180.000001, 180)}}"
             },
-            "hobby": "{{random('swimming', 'running', 'biking', 'hiking', 'football', 'baseball', 'soccer', 'cooking', 'music', 'idle')}}"
+            "hobby": "{{random('swimming', 'running', 'biking', 'hiking', 'football', 'baseball', 'soccer', 'cooking', 'music', 'idle')}}",
+            "comment": function (tags) {
+                            return this.firstname + " is " + (new Date((Date.now()-new Date(this.birthday).getTime())).getUTCFullYear()-1970) +" years old and lives in " + this.address.state + ", has " + tags.integer(2, 5) + " children and a great hobby called " + this.hobby;
+            }
         }
     ]
 }
@@ -66,40 +69,42 @@ With a given input data (see file [json-generator-input.json](src/main/resources
 
 
     ],
-    "data": [
+   "data": [
         {
-            "firstname": "Mitchell",
-            "surname": "Morin",
+            "firstname": "Huber",
+            "surname": "Sweeney",
             "gender": "male",
-            "birthday": "1978-04-26",
-            "company": "Zipak",
-            "email": "mitchellmorin@zipak.com",
-            "phone": "+1 (841) 518-3503",
+            "birthday": "1941-06-30",
+            "company": "Pearlessa",
+            "email": "hubersweeney@pearlessa.com",
+            "phone": "+1 (842) 495-2793",
             "address": {
-                "street": "37 Sackett Street",
-                "city": "Rivera",
-                "state": "Maryland",
-                "latitude": 46.104895,
-                "longitude": -73.553425
+                "street": "15 Oliver Street",
+                "city": "Barronett",
+                "state": "South Carolina",
+                "latitude": 8.255781,
+                "longitude": 109.603304
             },
-            "hobby": "football"
+            "hobby": "biking",
+            "comment": "Huber is 74 years old and lives in South Carolina, has 5 children and a great hobby called biking"
         },
         {
-            "firstname": "Minnie",
-            "surname": "Craft",
-            "gender": "female",
-            "birthday": "1976-06-21",
-            "company": "Zanilla",
-            "email": "minniecraft@zanilla.com",
-            "phone": "+1 (800) 437-3702",
+            "firstname": "Dejesus",
+            "surname": "Walker",
+            "gender": "male",
+            "birthday": "1944-01-21",
+            "company": "Magneato",
+            "email": "dejesuswalker@magneato.com",
+            "phone": "+1 (946) 446-3735",
             "address": {
-                "street": "5 Evans Street",
-                "city": "Clarksburg",
-                "state": "Arizona",
-                "latitude": -63.937996,
-                "longitude": -62.63248
+                "street": "27 Degraw Street",
+                "city": "Staples",
+                "state": "Mississippi",
+                "latitude": -0.027564,
+                "longitude": -137.18162
             },
-            "hobby": "running"
+            "hobby": "hiking",
+            "comment": "Dejesus is 71 years old and lives in Mississippi, has 2 children and a great hobby called hiking"
         },
 
         "---> up to 10000 data sets <---"
@@ -125,9 +130,9 @@ looks like
 
 ````
 {"index":{"_id":1}}
-{"birthday":"1930-12-29","firstname":"Bonner","address":{"city":"Kerby","street":"4 Independence Avenue","latitude":10.032859,"state":"Nevada","longitude":87.830614},"gender":"male","phone":"+1 (845) 586-2656","surname":"Hurley","company":"Medifax","email":"bonnerhurley@medifax.com","hobby":"idle"}
+{"birthday":"1941-06-30","firstname":"Huber","address":{"city":"Barronett","street":"15 Oliver Street","latitude":8.255781,"state":"South Carolina","longitude":109.603304},"gender":"male","phone":"+1 (842) 495-2793","surname":"Sweeney","company":"Pearlessa","comment":"Huber is 74 years old and lives in South Carolina, has 5 children and a great hobby called biking","email":"hubersweeney@pearlessa.com","hobby":"biking"}
 {"index":{"_id":2}}
-{"birthday":"2004-05-10","firstname":"Mills","address":{"city":"Kidder","street":"9 Devoe Street","latitude":-88.89292,"state":"Kansas","longitude":150.753392},"gender":"male","phone":"+1 (826) 587-3873","surname":"Robinson","company":"Suretech","email":"millsrobinson@suretech.com","hobby":"swimming"}
+{"birthday":"1944-01-21","firstname":"Dejesus","address":{"city":"Staples","street":"27 Degraw Street","latitude":-0.027564,"state":"Mississippi","longitude":-137.18162},"gender":"male","phone":"+1 (946) 446-3735","surname":"Walker","company":"Magneato","comment":"Dejesus is 71 years old and lives in Mississippi, has 2 children and a great hobby called hiking","email":"dejesuswalker@magneato.com","hobby":"hiking"}
 ...
 ````
 

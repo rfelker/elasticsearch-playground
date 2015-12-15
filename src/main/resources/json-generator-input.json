@@ -1,5 +1,5 @@
 {
-    "indizes": [
+    "indices": [
         "{{repeat(10000)}}",
         {
             "index": {

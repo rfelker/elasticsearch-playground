@@ -12,12 +12,17 @@ import java.util.Iterator;
 public class ImportDataGenerator {
     public static void main(String[] args) throws IOException, ParseException {
 
-        String jsonGeneratorOutput = "/json-generator-output.json";
+        String jsonGeneratorOutput = "json-generator-output.json";
         String importDataElasticsearch = "import-data-elasticsearch.json";
 
-        if (args != null && args.length == 2) {
-            jsonGeneratorOutput = args[0];
-            importDataElasticsearch = args[1];
+        if (args != null) {
+            if (args.length == 2) {
+                jsonGeneratorOutput = args[0];
+                importDataElasticsearch = args[1];
+
+            } else if (args.length == 1) {
+                importDataElasticsearch = args[1];
+            }
         }
 
         ImportDataGenerator app = new ImportDataGenerator();
@@ -38,13 +43,13 @@ public class ImportDataGenerator {
             JSONParser parser = new JSONParser();
             JSONObject parseData = (JSONObject) parser.parse(reader);
 
-            JSONArray indizes = (JSONArray) parseData.get("indizes");
+            JSONArray indices = (JSONArray) parseData.get("indices");
             JSONArray data = (JSONArray) parseData.get("data");
 
             System.out.println(String.format("reading from file %s...", inputFile.getName()));
-            System.out.println(String.format("writing %d data sets to file %s...", indizes.size(), outputFile.getName()));
+            System.out.println(String.format("writing %d data sets to file %s...", indices.size(), outputFile.getName()));
 
-            Iterator indizesIterator = indizes.iterator();
+            Iterator indizesIterator = indices.iterator();
             Iterator dataIterator = data.iterator();
 
             while (indizesIterator.hasNext() && dataIterator.hasNext()) {

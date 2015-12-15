@@ -8,7 +8,7 @@ To play around with Elasticsearch you need first some sample data. A good source
 ### Input data for json-generator.com
 With json-generator.com, you write some generic input data in the left box (see the website for details). Such data looks like
 
-````json
+````javascript
 {
     "indizes": [
         "{{repeat(4)}}",

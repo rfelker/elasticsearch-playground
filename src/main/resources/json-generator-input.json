@@ -13,7 +13,7 @@
             "firstname": "{{firstName()}}",
             "surname": "{{surname()}}",
             "gender": "{{gender()}}",
-            "birthday": "{{date(new Date(1930,0,1), new Date(), 'YYYY-MM-dd')}}",
+            "birthday": "{{date(new Date(1930,0,1), new Date(1999,12,31), 'YYYY-MM-dd')}}",
             "company": "{{company()}}",
             "email": "{{email()}}",
             "phone": "+1 {{phone()}}",
@@ -24,7 +24,10 @@
                 "latitude": "{{floating(-90.000001, 90)}}",
                 "longitude": "{{floating(-180.000001, 180)}}"
             },
-            "hobby": "{{random('swimming', 'running', 'biking', 'hiking', 'football', 'baseball', 'soccer', 'cooking', 'music', 'idle')}}"
+            "hobby": "{{random('swimming', 'running', 'biking', 'hiking', 'football', 'baseball', 'soccer', 'cooking', 'music', 'idle')}}",
+            "comment": function (tags) {
+                return this.firstname + " is " + (new Date((Date.now()-new Date(this.birthday).getTime())).getUTCFullYear()-1970) +" years old and lives in " + this.address.state + ", has " + tags.integer(2, 5) + " children and a great hobby called " + this.hobby;
+            }
         }
     ]
 }

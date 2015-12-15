@@ -62,7 +62,7 @@ With a given input data (see file [json-generator-input.json](src/main/resources
             }
         },
 
-        ---> up to 10000 indizes <---
+        "---> up to 10000 indizes <---"
 
 
     ],
@@ -102,7 +102,7 @@ With a given input data (see file [json-generator-input.json](src/main/resources
             "hobby": "running"
         },
 
-        ---> up to 10000 data sets <---
+        "---> up to 10000 data sets <---"
 
     ]
 }

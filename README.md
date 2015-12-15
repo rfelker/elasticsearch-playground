@@ -15,7 +15,7 @@ With a given input data (see file [json-generator-input.json](src/main/resources
 
 ````
 {
-    "indizes": [
+    "indices": [
         "{{repeat(10000)}}",
         {
             "index": {
@@ -50,7 +50,7 @@ With a given input data (see file [json-generator-input.json](src/main/resources
 
 ````json
 {
-    "indizes": [
+    "indices": [
         {
             "index": {
                 "_id": 1
@@ -130,6 +130,22 @@ looks like
 {"birthday":"2004-05-10","firstname":"Mills","address":{"city":"Kidder","street":"9 Devoe Street","latitude":-88.89292,"state":"Kansas","longitude":150.753392},"gender":"male","phone":"+1 (826) 587-3873","surname":"Robinson","company":"Suretech","email":"millsrobinson@suretech.com","hobby":"swimming"}
 ...
 ````
+
+### Import test data in Elasticsearch
+Last but not least you can load the test data into the Elasticsearch cluster with the command
+
+````bash
+curl -XPOST 'localhost:9200/person/data/_bulk?pretty' --data-binary @import-data-elasticsearch.json
+````
+
+Let's take a look on the indices:
+
+````
+> $ curl 'localhost:9200/_cat/indices?v'
+> health status index       pri rep docs.count docs.deleted store.size pri.store.size
+> yellow open   person        5   1      10000            0      4.6mb          4.6mb
+````
+
 
 
 

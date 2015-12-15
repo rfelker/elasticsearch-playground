@@ -60,7 +60,11 @@ With a given input data (see file [json-generator-input.json](src/main/resources
             "index": {
                 "_id": 2
             }
-        }
+        },
+
+        ---> up to 10000 indizes <---
+
+
     ],
     "data": [
         {
@@ -96,7 +100,10 @@ With a given input data (see file [json-generator-input.json](src/main/resources
                 "longitude": -62.63248
             },
             "hobby": "running"
-        }
+        },
+
+        ---> up to 10000 data sets <---
+
     ]
 }
 ````

@@ -1,5 +1,6 @@
 # Playing around with Elasticsearch 2.1
 The intent of this project is to get some experience with Elasticsearch
+Take also a look at the [wiki](https://github.com/rfelker/elasticsearch-playground/wiki)
 
 ## Generating test data
 To play around with Elasticsearch you need first some sample data. A good source for generating
@@ -112,7 +113,7 @@ for bulk import in Elasticsearch with the ImportDataGenerator from this reposito
 > done!
 ```
 
-The resulting file with 10.000 datasets is the file `import-data-elasticsearch.json` from this
+The resulting file with 10.000 datasets is the file [import-data-elasticsearch.json](import-data-elasticsearch.json) in this
 repository
 
 

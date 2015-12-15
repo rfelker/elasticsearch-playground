@@ -110,7 +110,7 @@ With a given input data (see file [json-generator-input.json](src/main/resources
 
 ### Generating bulk data
 With the output data from json-generator.com you can generate a data import file
-for bulk import in Elasticsearch with the ImportDataGenerator from this repository:
+for bulk import in Elasticsearch with the [ImportDataGenerator](ImportDataGenerator.jar) from this repository:
 
 ```bash
 > $ java -jar ImportDataGenerator.jar json-generator-output.json import-data-elasticsearch.json

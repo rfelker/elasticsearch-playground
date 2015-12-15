@@ -140,7 +140,7 @@ curl -XPOST 'localhost:9200/person/data/_bulk?pretty' --data-binary @import-data
 
 Let's take a look on the indices:
 
-````
+````bash
 > $ curl 'localhost:9200/_cat/indices?v'
 > health status index       pri rep docs.count docs.deleted store.size pri.store.size
 > yellow open   person        5   1      10000            0      4.6mb          4.6mb

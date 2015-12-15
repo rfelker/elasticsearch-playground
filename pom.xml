@@ -31,7 +31,7 @@
     </dependencies>
 
     <build>
-        <finalName>generateESImportFile</finalName>
+        <finalName>ImportDataGenerator</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -53,6 +53,8 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
+                    <finalName>ImportDataGenerator</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
                     <archive>
                         <manifest>
                             <mainClass>de.codecentric.elastic.ImportDataGenerator</mainClass>

@@ -2,13 +2,15 @@
 The intent of this project is to get some experience with Elasticsearch
 
 ## Generating test data
-To play around with Elasticsearch you need first some sample data. A good source for generating such data is the website
-[json-generator.com] (http://www.json-generator.com) and a little program from me :-), which transform the outut from json-generator.com to a bulk import file for Elasticsearch.
+To play around with Elasticsearch you need first some sample data. A good source for generating
+such data is the website [json-generator.com] (http://www.json-generator.com) and a little program
+from me :-), which transform the outut from json-generator.com to a bulk import file for Elasticsearch.
 
 ### Input data for json-generator.com
-With json-generator.com, you write some generic input data and get generated output data (see the website for details). 
+With json-generator.com, you write some generic input data and get generated output data
+(see the website for details).
 
-With a given imput data...
+With a given input data...
 
 ````
 {
@@ -43,8 +45,8 @@ With a given imput data...
 }
 
 ````
-
-... the output looks like
+### Output data from json-generator.com
+... the generated output data looks like
 
 ````json
 {
@@ -98,6 +100,21 @@ With a given imput data...
     ]
 }
 ````
+
+### Generating bulk data
+With the output data from json-generator.com you can generate a data import file
+for bulk import in Elasticsearch with the ImportDataGenerator from this repository:
+
+```bash
+> $ java -jar ImportDataGenerator.jar json-generator-output.json import-data-elasticsearch.json
+> reading from file json-generator-output.json...
+> writing 10000 data sets to file import-data-elasticsearch.json...
+> done!
+```
+
+The resulting file with 10.000 datasets is the file `import-data-elasticsearch.json` from this
+repository
+
 
 
 
